@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herma Picker</title>
+
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .file-input {
+            display: none;
+        }
+
+        .tdiLogo{
+            width: 80%;
+        }
+
+        .logoContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<img>
+
+<body>    
+    <div class="container">
+        <img class="tdiLogo" src="441.png" alt="" id="img"></img>
+        <h1>File Upload</h1>
+        <input type="file" id="fileInput" class="file-input">
+        <label for="fileInput" class="btn">Select File</label>
+    </div>
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        fileInput.addEventListener('change', handleFileUpload);
+
+        function handleFileUpload() {
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('File uploaded successfully');
+                } else {
+                    alert('Error uploading file');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+    
+</body>
+</html>
