@@ -21,13 +21,13 @@ namespace HermaPicker
 
         private void uploadFilesBtn_Click(object sender, EventArgs e)
         {
+            int portNumber = 8080;
+            HostUploadWebsite(portNumber, $"http://localhost:{portNumber}/");
+            StartUploadListener();
+        }
 
-           
-
-            int portNumber = 8080; // Replace with desired port
-
-            string baseAddress = $"http://localhost:{portNumber}/"; // Modify as needed based on your desired base URL
-
+        private void HostUploadWebsite(int portNumber, string baseAddress)
+        {
             httpListener = new HttpListener();
             httpListener.Prefixes.Add(baseAddress);
 
@@ -45,7 +45,7 @@ namespace HermaPicker
                             HttpListenerContext context = await httpListener.GetContextAsync();
                             // Handle the incoming request and generate the appropriate response
 
-                            // Example: Sending a simple response
+                            // sending a index.html file as response
                             string htmlFilePath = "./Resources/index.html";
                             string responseString = File.ReadAllText(htmlFilePath);
                             byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
@@ -70,7 +70,6 @@ namespace HermaPicker
                 // Handle any exceptions that occur during web server startup
                 MessageBox.Show($"Error starting the web server: {ex.Message}");
             }
-            StartUploadListener();
         }
 
         private void StartUploadListener()

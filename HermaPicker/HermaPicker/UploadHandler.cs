@@ -52,7 +52,8 @@ namespace HermaPicker
             {
                 HttpListenerRequest request = context.Request;
                 string fileName = request.Headers["FileName"];
-                string savePath = Path.Combine(uploadFolderPath, fileName);
+                MessageBox.Show(request.Headers.ToString());
+                string savePath = Path.Combine(uploadFolderPath, fileName = "file1.png");
 
                 using (FileStream fs = File.Create(savePath))
                 {
@@ -60,7 +61,6 @@ namespace HermaPicker
                 }
 
                 // Handle the uploaded file as needed
-
                 context.Response.StatusCode = (int)HttpStatusCode.OK;
                 context.Response.Close();
             }

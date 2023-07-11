@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fabi0\\Desktop\\HermaPicking\\HermaPicker\\HermaPicker\\HermaPicker.csproj": {}
+    "C:\\Users\\Fabi0\\Desktop\\WF-OCR\\HermaPicker\\HermaPicker\\HermaPicker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fabi0\\Desktop\\HermaPicking\\HermaPicker\\HermaPicker\\HermaPicker.csproj": {
+    "C:\\Users\\Fabi0\\Desktop\\WF-OCR\\HermaPicker\\HermaPicker\\HermaPicker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fabi0\\Desktop\\HermaPicking\\HermaPicker\\HermaPicker\\HermaPicker.csproj",
+        "projectUniqueName": "C:\\Users\\Fabi0\\Desktop\\WF-OCR\\HermaPicker\\HermaPicker\\HermaPicker.csproj",
         "projectName": "HermaPicker",
-        "projectPath": "C:\\Users\\Fabi0\\Desktop\\HermaPicking\\HermaPicker\\HermaPicker\\HermaPicker.csproj",
+        "projectPath": "C:\\Users\\Fabi0\\Desktop\\WF-OCR\\HermaPicker\\HermaPicker\\HermaPicker.csproj",
         "packagesPath": "C:\\Users\\Fabi0\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fabi0\\Desktop\\HermaPicking\\HermaPicker\\HermaPicker\\obj\\",
+        "outputPath": "C:\\Users\\Fabi0\\Desktop\\WF-OCR\\HermaPicker\\HermaPicker\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Fabi0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
