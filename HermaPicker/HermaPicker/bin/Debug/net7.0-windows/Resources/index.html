@@ -49,34 +49,48 @@
         <form action="/upload" method="POST" enctype="multipart/form-data">
             <input type="file" id="fileInput" name="file" class="file-input">
             <label for="fileInput" class="btn">Select File</label>
-            <button type="submit">Upload</button>
+            <button type="SUBMIT">Submit</button>
         </form>
     </div>
     <script>
-        const fileInput = document.getElementById('fileInput');
-        fileInput.addEventListener('change', handleFileUpload);
+                fileInput.addEventListener('change', handleFileUpload);
 
         function handleFileUpload() {
-            const file = fileInput.files[0];
+            var file = document.getElementById('fileInput');
             const formData = new FormData();
-            formData.append('file', file);
             console.log(file);
-            fetch('/upload', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log('File uploaded successfully');
-                    alert('File uploaded successfully');
-                } else {
-                    console.log('File upload failed');
-                    alert('Error uploading file');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+
+                        
+            if(file.files.length)
+            {
+                var reader = new FileReader();
+                
+                reader.onload = function(e)
+                {
+                    let cenas =  e.target.result;
+
+                    formData.append('file', cenas);
+                        console.log(cenas);
+                        fetch('/upload', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                console.log('File uploaded successfully');
+                                alert('File uploaded successfully');
+                            } else {
+                                console.log('File upload failed');
+                                alert('Error uploading file');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                };
+                
+                reader.readAsBinaryString(file.files[0]);
+            }
         }
     </script>
     
